@@ -345,12 +345,7 @@ PV_REGISTERS = {
 }
 REGISTERS.update(PV_REGISTERS)
 
-<<<<<<< HEAD
 BATTERY_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
-=======
-
-BATTERY_REGISTERS = {
->>>>>>> 5b3343c (add changes not to be published)
     rn.STORAGE_UNIT_1_RUNNING_STATUS: U16Register(rv.StorageStatus, 1, 37000),
     rn.STORAGE_UNIT_1_CHARGE_DISCHARGE_POWER: I32Register("W", 1, 37001),
     rn.STORAGE_UNIT_1_BUS_VOLTAGE: U16Register("V", 10, 37003),
@@ -586,12 +581,7 @@ BATTERY_REGISTERS = {
 }
 REGISTERS.update(BATTERY_REGISTERS)
 
-<<<<<<< HEAD
 CAPACITY_CONTROL_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
-=======
-
-CAPACITY_CONTROL_REGISTERS = {
->>>>>>> 5b3343c (add changes not to be published)
     # We must check if we can read from these registers to know if this feature is supported
     # by the inverter/battery firmware
     rn.STORAGE_CAPACITY_CONTROL_MODE: U16Register(

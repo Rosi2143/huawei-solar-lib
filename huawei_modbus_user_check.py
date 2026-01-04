@@ -6,14 +6,14 @@ import os
 import time
 from logging.handlers import RotatingFileHandler
 
-from huawei_solar import HuaweiSUN2000Bridge, create_tcp_bridge
+from huawei_solar import SUN2000Device, create_device_instance, create_tcp_client
 from huawei_solar.registers import REGISTERS
 
 LOGGER = logging.getLogger(__name__)
 IP_ADDRESS = "192.168.178.29"
 
 
-async def get_data(register_name: str, huawei_solar_bridge: HuaweiSUN2000Bridge) -> None:
+async def get_data(register_name: str, huawei_solar_bridge: SUN2000Device) -> None:
     """Get data from the inverter and wait"""
     LOGGER.info("%20s - Starting", register_name)
     LOGGER.info("%20s - Getting values", register_name)
@@ -38,7 +38,9 @@ async def main():
     while not connected:
         try:
             connect_count += 1
-            hsb = await create_tcp_bridge(host=IP_ADDRESS, port=502, slave_id=1)
+            client = create_tcp_client(host=IP_ADDRESS, port=502)
+            hsb = await create_device_instance(client)
+            assert isinstance(hsb, SUN2000Device)
 
             connected = True
         except Exception as err:

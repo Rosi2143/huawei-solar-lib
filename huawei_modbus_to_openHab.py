@@ -9,7 +9,7 @@ import time
 from logging.handlers import RotatingFileHandler
 
 import huawei_solar.register_names as rn
-from huawei_solar import HuaweiSUN2000Bridge, create_tcp_bridge
+from huawei_solar import SUN2000Device, create_device_instance, create_tcp_client
 
 bug_data = {
     rn.MODEL_NAME: None,
@@ -407,7 +407,9 @@ async def main():
     while not connected:
         try:
             connect_count += 1
-            hsb = await create_tcp_bridge(host=IP_ADDRESS, port=502, slave_id=1)
+            client = create_tcp_client(host=IP_ADDRESS, port=502)
+            hsb = await create_device_instance(client)
+            assert isinstance(hsb, SUN2000Device)
 
             connected = True
         except Exception as err:
