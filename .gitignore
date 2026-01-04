@@ -64,3 +64,6 @@ target/
 src/huawei-solar/version.py
 
 report.xml
+
+# venv
+venv/
