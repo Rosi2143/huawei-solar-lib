@@ -339,10 +339,14 @@ PV_REGISTERS = {
     rn.PV_24_VOLTAGE: I16Register("V", 10, 32062),
     rn.PV_24_CURRENT: I16Register("A", 100, 32063),
 }
-
 REGISTERS.update(PV_REGISTERS)
 
+<<<<<<< HEAD
 BATTERY_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
+=======
+
+BATTERY_REGISTERS = {
+>>>>>>> 5b3343c (add changes not to be published)
     rn.STORAGE_UNIT_1_RUNNING_STATUS: U16Register(rv.StorageStatus, 1, 37000),
     rn.STORAGE_UNIT_1_CHARGE_DISCHARGE_POWER: I32Register("W", 1, 37001),
     rn.STORAGE_UNIT_1_BUS_VOLTAGE: U16Register("V", 10, 37003),
@@ -578,7 +582,12 @@ BATTERY_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
 }
 REGISTERS.update(BATTERY_REGISTERS)
 
+<<<<<<< HEAD
 CAPACITY_CONTROL_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
+=======
+
+CAPACITY_CONTROL_REGISTERS = {
+>>>>>>> 5b3343c (add changes not to be published)
     # We must check if we can read from these registers to know if this feature is supported
     # by the inverter/battery firmware
     rn.STORAGE_CAPACITY_CONTROL_MODE: U16Register(
@@ -1620,3 +1629,22 @@ SMARTLOGGER_POWER_METER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]
 }
 
 REGISTERS.update(SMARTLOGGER_POWER_METER_REGISTERS)
+REGISTERS.update(SDONGLE_REGISTERS)
+
+STATISTICS_REGISTERS = {
+    rn.NUMBER_OF_CRITICAL_ALARMS: U16Register(None, 1, 32151),
+    rn.NUMBER_OF_MAJOR_ALARMS: U16Register(None, 1, 32152),
+    rn.NUMBER_OF_MINOR_ALARMS: U16Register(None, 1, 32153),
+    rn.NUMBER_OF_WARNING_ALARMS: U16Register(None, 1, 32154),
+    rn.ALARM_CLEARANCE_SERIAL_NUMBER: U16Register(None, 1, 32155),
+    rn.ELECTRICITY_STATISTICS_TIME_IN_THE_PREVIOUS_HOUR: TimestampRegister(32156),
+    rn.ELECTRICITY_GENERATED_TIME_IN_THE_PREVIOUS_HOUR: U32Register("kWh", 100, 32158),
+    rn.ELECTRICITY_STATISTICS_TIME_IN_THE_PREVIOUS_DAY: TimestampRegister(32160),
+    rn.ELECTRICITY_GENERATED_TIME_IN_THE_PREVIOUS_DAY: U32Register("kWh", 100, 32162),
+    rn.ELECTRICITY_STATISTICS_TIME_IN_THE_PREVIOUS_MONTH: TimestampRegister(32164),
+    rn.ELECTRICITY_GENERATED_TIME_IN_THE_PREVIOUS_MONTH: U32Register("kWh", 100, 32166),
+    rn.ELECTRICITY_STATISTICS_TIME_IN_THE_PREVIOUS_YEAR: TimestampRegister(32168),
+    rn.ELECTRICITY_GENERATED_TIME_IN_THE_PREVIOUS_YEAR: U32Register("kWh", 100, 32170),
+}
+
+REGISTERS.update(STATISTICS_REGISTERS)
