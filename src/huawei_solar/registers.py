@@ -341,12 +341,7 @@ PV_REGISTERS = {
 }
 REGISTERS.update(PV_REGISTERS)
 
-<<<<<<< HEAD
 BATTERY_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
-=======
-
-BATTERY_REGISTERS = {
->>>>>>> 5b3343c (add changes not to be published)
     rn.STORAGE_UNIT_1_RUNNING_STATUS: U16Register(rv.StorageStatus, 1, 37000),
     rn.STORAGE_UNIT_1_CHARGE_DISCHARGE_POWER: I32Register("W", 1, 37001),
     rn.STORAGE_UNIT_1_BUS_VOLTAGE: U16Register("V", 10, 37003),
@@ -582,12 +577,7 @@ BATTERY_REGISTERS = {
 }
 REGISTERS.update(BATTERY_REGISTERS)
 
-<<<<<<< HEAD
 CAPACITY_CONTROL_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
-=======
-
-CAPACITY_CONTROL_REGISTERS = {
->>>>>>> 5b3343c (add changes not to be published)
     # We must check if we can read from these registers to know if this feature is supported
     # by the inverter/battery firmware
     rn.STORAGE_CAPACITY_CONTROL_MODE: U16Register(
@@ -1017,7 +1007,7 @@ SMARTLOGGER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
         writeable=True,
         target_device=TargetDevice.SMARTLOGGER,
     ),
-    rn.SMARTLOGGER_STARTUP_SHUTDOWN: U16Register(
+    rn.SMARTLOGGER_STARTUP_SHUTDOWN_2: U16Register(
         None,
         1,
         40203,
@@ -1115,8 +1105,8 @@ SMARTLOGGER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
     ),
     rn.SMARTLOGGER_ACTIVE_POWER_ADJUSTMENT: I32Register("kW", 10, 40420, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_REACTIVE_POWER_ADJUSTMENT: I32Register("kVar", 10, 40422, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_ACTIVE_POWER_ADJUSTMENT: U32Register("kW", 10, 40424, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_REACTIVE_POWER_ADJUSTMENT: I32Register("kVar", 10, 40426, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_ACTIVE_POWER_ADJUSTMENT_2: U32Register("kW", 10, 40424, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_REACTIVE_POWER_ADJUSTMENT_2: I32Register("kVar", 10, 40426, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_ACTIVE_POWER_ADJUSTMENT_IN_PERCENTAGE: I16Register(
         "%",
         10,
@@ -1205,16 +1195,16 @@ SMARTLOGGER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
         target_device=TargetDevice.SMARTLOGGER,
     ),
     rn.SMARTLOGGER_PLANT_STATUS: U16Register(None, 1, 40541, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_PLANT_STATUS: U16Register(None, 1, 40542, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_PLANT_STATUS: U16Register(None, 1, 40543, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_PLANT_STATUS_2: U16Register(None, 1, 40542, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_PLANT_STATUS_3: U16Register(None, 1, 40543, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_REACTIVE_POWER: I32Register("kVar", 1000, 40544, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_CO2_REDUCED: U64Register("kg", 100, 40550, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_CO2_REDUCED_2: U64Register("kg", 100, 40550, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_DC_CURRENT_2: I32Register("A", 10, 40554, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_TOTAL_ENERGY_YIELD: U32Register("kWh", 10, 40560, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_YIELD_TODAY: U32Register("kWh", 10, 40562, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_TODAYS_POWER_GENERATION_HOURS: U32Register("h", 10, 40564, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_PLANT_STATUS: U16Register(None, 1, 40566, target_device=TargetDevice.SMARTLOGGER),
-    rn.SMARTLOGGER_PLANT_STATUS: U16Register(None, 1, 40567, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_PLANT_STATUS_4: U16Register(None, 1, 40566, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_PLANT_STATUS_5: U16Register(None, 1, 40567, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_ACTIVE_ALARM_SEQUENCE_NUMBER: U32Register(None, 1, 40568, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_HISTORICAL_ALARM_SEQUENCE_NUMBER: U32Register(
         None,
@@ -1293,7 +1283,7 @@ SMARTLOGGER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
         41124,
         target_device=TargetDevice.SMARTLOGGER,
     ),
-    rn.SMARTLOGGER_ACTIVE_POWER_CONTROL_MODE: U16Register(None, 1, 41889, target_device=TargetDevice.SMARTLOGGER),
+    rn.SMARTLOGGER_ACTIVE_POWER_CONTROL_MODE_2: U16Register(None, 1, 41889, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_PV_MODULE_CAPACITY: U32Register("kW", 1000, 41934, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_RATED_PLANT_CAPACITY: U32Register("kW", 1000, 41936, target_device=TargetDevice.SMARTLOGGER),
     rn.SMARTLOGGER_TOTAL_RATED_CAPACITY_OF_GRID_TIED_INVERTERS: U32Register(
@@ -1390,7 +1380,7 @@ SMARTLOGGER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]] = {
         writeable=True,
         target_device=TargetDevice.SMARTLOGGER,
     ),
-    rn.SMARTLOGGER_REACTIVE_POWER_CONTROL_MODE: U16Register(
+    rn.SMARTLOGGER_REACTIVE_POWER_CONTROL_MODE_2: U16Register(
         None,
         1,
         44165,
@@ -1614,13 +1604,13 @@ SMARTLOGGER_POWER_METER_REGISTERS: dict[rn.RegisterName, RegisterDefinition[Any]
         32353,
         target_device=TargetDevice.SMARTLOGGER,
     ),
-    rn.SMARTLOGGER_EXTERNAL_METER_POSITIVE_ACTIVE_ELECTRICITY: I64Register(
+    rn.SMARTLOGGER_EXTERNAL_METER_POSITIVE_ACTIVE_ELECTRICITY_2: I64Register(
         "kW h",
         100,
         32357,
         target_device=TargetDevice.SMARTLOGGER,
     ),
-    rn.SMARTLOGGER_EXTERNAL_METER_POSITIVE_REACTIVE_ELECTRICITY: I64Register(
+    rn.SMARTLOGGER_EXTERNAL_METER_POSITIVE_REACTIVE_ELECTRICITY_2: I64Register(
         "kvar h",
         100,
         32361,
