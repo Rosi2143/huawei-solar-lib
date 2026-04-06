@@ -19,7 +19,7 @@ logging.basicConfig(level=logging.DEBUG)
 
 async def test() -> None:
     """Run test."""
-    client = create_tcp_client(host="192.168.1.1", port=503)
+    client = create_tcp_client(host="192.168.178.34", port=502)
 
     print(await get_device_identifiers(client))
     print(await get_device_infos(client))
