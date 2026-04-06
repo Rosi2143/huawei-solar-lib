@@ -4,13 +4,13 @@ After=network.target
 
 [Service]
 ExecStart=/home/pi/.local/bin/uv run ./huawei_modbus_to_openHab.py
-WorkingDirectory=/home/pi/git/raspberrySpotify/huawei/huawei-solar
+WorkingDirectory=/home/pi/git/huawei-solar-lib
 StandardOutput=inherit
 # Or use StandardOutput=null if you don't want Zigbee2MQTT messages filling syslog, for more options see systemd.exec(5)
 StandardError=inherit
 Restart=always
 User=pi
-Environment="PYTHONPATH=/home/pi/git/raspberrySpotify/huawei/huawei-solar/src/"
+#Environment="PYTHONPATH=/home/pi/git/raspberrySpotify/huawei/huawei-solar/src/"
 
 [Install]
 WantedBy=multi-user.target
