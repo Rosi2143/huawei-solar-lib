@@ -10,7 +10,7 @@ from huawei_solar import SUN2000Device, create_device_instance, create_tcp_clien
 from huawei_solar.registers import REGISTERS
 
 LOGGER = logging.getLogger(__name__)
-IP_ADDRESS = "192.168.178.29"
+IP_ADDRESS = "192.168.178.34"
 
 
 async def get_data(register_name: str, huawei_solar_bridge: SUN2000Device) -> None:
