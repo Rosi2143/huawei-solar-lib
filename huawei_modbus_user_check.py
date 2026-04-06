@@ -11,6 +11,8 @@ from huawei_solar.registers import REGISTERS
 
 LOGGER = logging.getLogger(__name__)
 IP_ADDRESS = "192.168.178.34"
+TCP_PORT = 502
+UNIT_ID = 1
 
 
 async def get_data(register_name: str, huawei_solar_bridge: SUN2000Device) -> None:
@@ -38,7 +40,7 @@ async def main():
     while not connected:
         try:
             connect_count += 1
-            client = create_tcp_client(host=IP_ADDRESS, port=502)
+            client = create_tcp_client(host=IP_ADDRESS, port=TCP_PORT, unit_id=UNIT_ID)
             hsb = await create_device_instance(client)
             assert isinstance(hsb, SUN2000Device)
 

@@ -173,6 +173,8 @@ statistic_rare_data = {
 
 LOGGER = logging.getLogger(__name__)
 IP_ADDRESS = "192.168.178.34"
+TCP_PORT = 502
+UNIT_ID = 1
 BASE_URL = "http://192.168.178.26:8080/rest"
 OH_ITEM_MAP = {}
 OH_EXTRA_ITEM_MAP = {}
@@ -407,7 +409,7 @@ async def main():
     while not connected:
         try:
             connect_count += 1
-            client = create_tcp_client(host=IP_ADDRESS, port=502)
+            client = create_tcp_client(host=IP_ADDRESS, port=TCP_PORT, unit_id=UNIT_ID)
             hsb = await create_device_instance(client)
             assert isinstance(hsb, SUN2000Device)
 
