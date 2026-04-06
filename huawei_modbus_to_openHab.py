@@ -172,7 +172,7 @@ statistic_rare_data = {
 }
 
 LOGGER = logging.getLogger(__name__)
-IP_ADDRESS = "192.168.178.29"
+IP_ADDRESS = "192.168.178.34"
 BASE_URL = "http://192.168.178.26:8080/rest"
 OH_ITEM_MAP = {}
 OH_EXTRA_ITEM_MAP = {}
@@ -331,7 +331,7 @@ def oh_item_command(oh_item_name: str, oh_state: str) -> int:
     return os.system(command)
 
 
-async def get_data(data_set_name: str, delay_sec: int, huawei_solar_bridge: HuaweiSUN2000Bridge) -> None:
+async def get_data(data_set_name: str, delay_sec: int, huawei_solar_bridge: SUN2000Device) -> None:
     """Get data from the inverter and wait"""
     LOGGER.info("%20s - Starting", data_set_name)
     connected = True
